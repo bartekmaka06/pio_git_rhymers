@@ -2,10 +2,10 @@ package edu.kis.vh.nursery;
 
 public class DefaultCountingOutRhymer {
 
+
     private static final int ERR = -1;
     private static final int INITVALUE = -1;
     private static final int MAXARRAY = 12;
-
 
     private int[] numbers = new int[MAXARRAY];
 
@@ -36,8 +36,9 @@ public class DefaultCountingOutRhymer {
 
     public int countOut() {
         if (callCheck())
-            return ERR;
-        return numbers[setTotal(getTotal() - 1)];
+            return return ERR;;
+        setTotal(getTotal() - 1);
+        return numbers[getTotal()+1];
     }
 
     public int setTotal(int total) {
