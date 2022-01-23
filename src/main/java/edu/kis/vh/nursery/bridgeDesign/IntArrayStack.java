@@ -1,7 +1,6 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.bridgeDesign;
 
-public class IntArrayStack {
-    private static final int ERR = -1;
+public class IntArrayStack implements CollectionHierarchy{
     private static final int INITVALUE = -1;
     private static final int MAXARRAY = 12;
 
@@ -13,27 +12,32 @@ public class IntArrayStack {
         return total;
     }
 
-    public void countIn(int in) {
+
+    @Override
+    public void push(int in) {
         if (!isFull())
             numbers[setTotal(getTotal() + 1)] = in;
-    }
-
-    public boolean callCheck() {
-        return getTotal() == INITVALUE;
     }
 
     public boolean isFull() {
         return getTotal() == MAXARRAY-1;
     }
 
-    public int peekaboo() {
-        if (callCheck())
+    @Override
+    public boolean isEmpty() {
+        return getTotal() == INITVALUE;
+    }
+
+    @Override
+    public int top() {
+        if (isEmpty())
             return ERR;
         return numbers[getTotal()];
     }
 
-    public int countOut() {
-        if (callCheck())
+    @Override
+    public int pop() {
+        if (isEmpty())
             return ERR;;
         setTotal(getTotal() - 1);
         return numbers[getTotal()+1];

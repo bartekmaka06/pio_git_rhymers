@@ -1,6 +1,6 @@
 package edu.kis.vh.nursery;
 
-import edu.kis.vh.nursery.list.IntArrayStack;
+import edu.kis.vh.nursery.bridgeDesign.IntArrayStack;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ public class RhymersJUnitTest {
     @Test
     public void testFIFORhymerCountOut() {
         FIFORhymer rhymer = new FIFORhymer();
-        final int EMPTY_STACK_VALUE = -1;
+        final int EMPTY_STACK_VALUE = 0;
 
         int result = rhymer.countOut();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
@@ -33,7 +33,7 @@ public class RhymersJUnitTest {
     @Test
     public void testHanoiRhymerCountIn() {
         HanoiRhymer rhymer = new HanoiRhymer();
-        final int EMPTY_STACK_VALUE = -1;
+        final int EMPTY_STACK_VALUE = 0;
 
         int result = rhymer.countOut();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
@@ -64,21 +64,21 @@ public class RhymersJUnitTest {
     public void testCountIn() {
         IntArrayStack rhymer = new IntArrayStack();
         int testValue = 4;
-        rhymer.countIn(testValue);
+        rhymer.push(testValue);
 
-        int result = rhymer.peekaboo();
+        int result = rhymer.top();
         Assert.assertEquals(testValue, result);
     }
 
     @Test
     public void testCallCheck() {
         IntArrayStack rhymer = new IntArrayStack();
-        boolean result = rhymer.callCheck();
+        boolean result = rhymer.isEmpty();
         Assert.assertEquals(true, result);
 
-        rhymer.countIn(888);
+        rhymer.push(888);
 
-        result = rhymer.callCheck();
+        result = rhymer.isEmpty();
         Assert.assertEquals(false, result);
     }
 
@@ -89,7 +89,7 @@ public class RhymersJUnitTest {
         for (int i = 0; i < STACK_CAPACITY; i++) {
             boolean result = rhymer.isFull();
             Assert.assertEquals(false, result);
-            rhymer.countIn(888);
+            rhymer.push(888);
         }
 
         boolean result = rhymer.isFull();
@@ -99,34 +99,34 @@ public class RhymersJUnitTest {
     @Test
     public void testPeekaboo() {
         IntArrayStack rhymer = new IntArrayStack();
-        final int EMPTY_STACK_VALUE = -1;
+        final int EMPTY_STACK_VALUE = 0;
 
-        int result = rhymer.peekaboo();
+        int result = rhymer.top();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
 
         int testValue = 4;
-        rhymer.countIn(testValue);
+        rhymer.push(testValue);
 
-        result = rhymer.peekaboo();
+        result = rhymer.top();
         Assert.assertEquals(testValue, result);
-        result = rhymer.peekaboo();
+        result = rhymer.top();
         Assert.assertEquals(testValue, result);
     }
 
     @Test
     public void testCountOut() {
         IntArrayStack rhymer = new IntArrayStack();
-        final int EMPTY_STACK_VALUE = -1;
+        final int EMPTY_STACK_VALUE = 0;
 
-        int result = rhymer.countOut();
+        int result = rhymer.pop();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
 
         int testValue = 4;
-        rhymer.countIn(testValue);
+        rhymer.push(testValue);
 
-        result = rhymer.countOut();
+        result = rhymer.pop();
         Assert.assertEquals(testValue, result);
-        result = rhymer.countOut();
+        result = rhymer.pop();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
     }
 
