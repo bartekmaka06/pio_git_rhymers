@@ -1,16 +1,21 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.bridgeDesign.CollectionHierarchy;
 import edu.kis.vh.nursery.bridgeDesign.IntArrayStack;
+import edu.kis.vh.nursery.bridgeDesign.IntLinkedList;
 
 public class FIFORhymer extends DefaultCountingOutRhymer {
 
-	public final IntArrayStack temp = new IntArrayStack();
+	public final CollectionHierarchy temp = new IntArrayStack();
 
 	public FIFORhymer() {
 	}
 
 	public FIFORhymer(IntArrayStack intArrayStack) {
 		super(intArrayStack);
+	}
+	public FIFORhymer(IntLinkedList intLinkedList) {
+		super(intLinkedList);
 	}
 
 	/***
