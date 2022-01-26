@@ -1,7 +1,9 @@
 package edu.kis.vh.nursery;
 
 import edu.kis.vh.nursery.factory.DefaultRhymersFactory;
+import edu.kis.vh.nursery.factory.LinkedListRhymer;
 import edu.kis.vh.nursery.factory.RhymersFactory;
+import edu.kis.vh.nursery.factory.StackRhymer;
 
 class RhymersDemo {
 
@@ -12,6 +14,12 @@ class RhymersDemo {
         RhymersFactory factory = new DefaultRhymersFactory();
 
         testRhymers(factory);
+        System.out.println("--------------");
+        RhymersFactory factory2=new StackRhymer();
+        testRhymers(factory2);
+        System.out.println("--------------");
+        RhymersFactory factory3=new LinkedListRhymer();
+        testRhymers(factory3);
 
     }
 
