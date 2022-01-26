@@ -1,10 +1,10 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.bridgeDesign;
 
-public class IntLinkedList {
+public class IntLinkedList implements CollectionHierarchy{
 
 	Node last;
 	int i;
-
+	@Override
 	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
@@ -14,24 +14,24 @@ public class IntLinkedList {
 			last = last.next;
 		}
 	}
-
+	@Override
 	public boolean isEmpty() {
 		return last == null;
 	}
-
+	@Override
 	public boolean isFull() {
 		return false;
 	}
-
+	@Override
 	public int top() {
 		if (isEmpty())
-			return -1;
+			return ERR;
 		return last.value;
 	}
-
+	@Override
 	public int pop() {
 		if (isEmpty())
-			return -1;
+			return ERR;
 		int ret = last.value;
 		last = last.prev;
 		return ret;
